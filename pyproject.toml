@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "book-aggregator"
+version = "0.1.0"
+description = ""
+authors = ["KatyaPrusakova <katia.prusakova@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.11.7"
+requests = "^2.31.0"
+argparse = "^1.4.0"
+websocket-client = "^1.7.0"
+colorama = "^0.4.6"
+kafka-python = "^2.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
