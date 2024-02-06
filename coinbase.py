@@ -52,10 +52,3 @@ def coinbase_ws_producer(ws_uri,ws_channels,product_ids):
 
 
             return order_book
-
-if __name__ == "__main__":
-    ws_uri= "wss://ws-feed.exchange.coinbase.com"
-    ws_channels = ["level2_batch"]
-    product_ids = ["BTC-USD"]
-
-    result = coinbase_ws_producer(ws_uri,ws_channels,product_ids)

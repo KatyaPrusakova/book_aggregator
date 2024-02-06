@@ -1,38 +1,4 @@
 
-def calculate_price(order_book, quantity, side):
-    price = 0
-    accumulated = 0
-
-    for order in order_book[side]:
-        try:
-            if isinstance(order, dict):
-                order_price = float(order['price'])
-                order_quantity = float(order['amount'])
-            else:
-                print(f"Error: Order format not recognized {order}")
-                continue
-        except ValueError:
-            print(f"Error: Unable to convert order price or quantity to float for order {order}")
-            continue
-
-        if accumulated + order_quantity >= quantity:
-            price += (quantity - accumulated) * order_price
-            break
-        else:
-            price += order_quantity * order_price
-            accumulated += order_quantity
-
-    return price
-
-def calculate_prices_for_all_exchanges(order_books, quantity, side):
-    prices = {}
-    for exchange, book in order_books.items():
-        try:
-            prices[exchange] = calculate_price(book, quantity, side)
-        except Exception as e:
-            print(f"Error calculating price for {exchange}: {e}")
-    return prices
-
 def calculate_best_price(order_books_combined, quantity, side):
     total_price = 0
     accumulated_quantity = 0
